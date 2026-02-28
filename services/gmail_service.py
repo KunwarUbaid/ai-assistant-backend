@@ -128,6 +128,12 @@ engine = create_engine(os.getenv("DATABASE_URL"))
 
 
 def _load_client_secrets():
+    # On Railway: read from environment variable
+    raw = os.getenv("GOOGLE_CLIENT_SECRET_JSON")
+    if raw:
+        secret = json.loads(raw)
+        return secret.get("web", secret)
+    # Locally: read from file
     with open(CLIENT_SECRET_FILE, "r") as f:
         secret = json.load(f)
     return secret.get("web", secret)
