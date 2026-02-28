@@ -1,0 +1,21 @@
+# Environment & secrets - NEVER commit these
+.env
+.env.*
+client_secret.json
+token.json
+code_verifier.txt
+tokens/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Misc
+.DS_Store
+*.log
