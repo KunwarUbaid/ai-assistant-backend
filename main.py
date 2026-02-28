@@ -381,9 +381,13 @@ engine = create_engine(DATABASE_URL)
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
+    # allow_origins=[
+    #     "http://localhost:3000",
+    #     os.getenv( "https://ai-assistant-frontend-ochre.vercel.app", "http://localhost:3000"),
+    # ],
     allow_origins=[
         "http://localhost:3000",
-        os.getenv( "https://ai-assistant-frontend-ochre.vercel.app", "http://localhost:3000"),
+        "https://ai-assistant-frontend-ochre.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
